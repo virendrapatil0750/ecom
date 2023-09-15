@@ -3,6 +3,7 @@ package com.ecom.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ecom.common.ApiResponse;
 import com.ecom.model.Category;
 import com.ecom.service.CategoryService;
 
@@ -23,11 +25,11 @@ public class CategoryController {
 	CategoryService categoryService;
 	
 	@PostMapping("/saveCategory")
-	public ResponseEntity<String> saveCategory(	@RequestParam("categoryName") String categoryName,
+	public ResponseEntity<ApiResponse> saveCategory(	@RequestParam("categoryName") String categoryName,
 												@RequestParam("description") String description,
 												@RequestParam("image") MultipartFile image){
 		String response = categoryService.saveCategory(categoryName, description, image);
-		return ResponseEntity.ok(response);
+		return new ResponseEntity<ApiResponse>(new ApiResponse(true, "create a new category"),HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/allCategory")

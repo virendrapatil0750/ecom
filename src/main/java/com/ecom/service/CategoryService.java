@@ -53,6 +53,8 @@ public class CategoryService {
 		}
 		else if(cat.getCategoryName() == null) {
 			throw new CategoryNotFound("This category doesnot exits");
+//			return "Category already exists";
 		}
+		return "";
 	}
 }

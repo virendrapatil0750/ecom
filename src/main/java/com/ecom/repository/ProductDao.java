@@ -5,9 +5,9 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ecom.model.Category;
+import com.ecom.model.Product;
 
 @Repository
-public interface CategoryDao extends JpaRepository<Category, Integer>{
-	Optional<Category> findByCategoryName(String category);
+public interface ProductDao extends JpaRepository<Product, Integer>{
+	Optional<Product> findByCategoryId(long categoryId);
 }
