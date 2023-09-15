@@ -29,7 +29,7 @@ public class CategoryController {
 												@RequestParam("description") String description,
 												@RequestParam("image") MultipartFile image){
 		String response = categoryService.saveCategory(categoryName, description, image);
-		return new ResponseEntity<ApiResponse>(new ApiResponse(true, "create a new category"),HttpStatus.CREATED);
+		return new ResponseEntity<ApiResponse>(new ApiResponse(true, response),HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/allCategory")
