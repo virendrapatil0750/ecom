@@ -4,8 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecom.excemption.PasswordWrong;
+import com.ecom.excemption.UserAlreadyExist;
 import com.ecom.excemption.UserDoesNotExist;
-import com.ecom.exception.UserAlreadyExist;
+
 import com.ecom.model.User;
 import com.ecom.repository.UserDao;
 
